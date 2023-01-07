@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "c92da276-f55e-4c5a-881b-409b4651c424",
+		"name": "HW_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23524184"
+	},
+	"item": [
+		{
+			"name": "EP_1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}get_method?name=Artem&age=20",
+					"host": [
+						"{{url}}get_method"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Artem"
+						},
+						{
+							"key": "age",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var yolochka = pm.response.json();\r",
+							"let req = request.data\r",
+							"let req_salary = +req.salary\r",
+							"let resp_salary_1_5 = req_salary * 4\r",
+							"\r",
+							"console.log(\"req_salary = \" + typeof req_salary)\r",
+							"console.log(\"resp_salary = \" + typeof yolochka.salary)\r",
+							"\r",
+							"pm.test(\"Salary 1000\", function () {    \r",
+							"    pm.expect(yolochka.salary).to.eql(req_salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Salary 15\", function () {    \r",
+							"    pm.expect(yolochka.family.u_salary_1_5_year).to.eql(resp_salary_1_5);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"value": "Artem",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "age",
+						"value": "20",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "salary",
+						"value": "1000",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Artem\",\r\n    \"age\": 20,\r\n    \"salary\": 2000.\r\n    \"auth_token\":{{token}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}user_info_3",
+					"host": [
+						"{{url}}user_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}object_info_1?name=Artem&age=20&weight=100",
+					"host": [
+						"{{url}}object_info_1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Artem"
+						},
+						{
+							"key": "age",
+							"value": "20"
+						},
+						{
+							"key": "weight",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}object_info_2?name=Artem&age=20&salary=1000",
+					"host": [
+						"{{url}}object_info_2"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Artem"
+						},
+						{
+							"key": "age",
+							"value": "20"
+						},
+						{
+							"key": "salary",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}object_info_3?name=Artem&age=20&salary=1000",
+					"host": [
+						"{{url}}object_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Artem"
+						},
+						{
+							"key": "age",
+							"value": "20"
+						},
+						{
+							"key": "salary",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}object_info_4?name=Artem&age=20&salary=1000",
+					"host": [
+						"{{url}}object_info_4"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Artem"
+						},
+						{
+							"key": "age",
+							"value": "20"
+						},
+						{
+							"key": "salary",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EP_7",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Artem",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "1000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}user_info_2",
+					"host": [
+						"{{url}}user_info_2"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Artem",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "20",
+							"disabled": true
+						},
+						{
+							"key": "salary",
+							"value": "1000",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
